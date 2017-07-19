@@ -20,10 +20,10 @@ module.exports = function(ujs) {
 
   if (ujs.jQuery) {
     ujs.handleEvent = function(eventName, callback) {
-      ujs.jQuery(document).on(eventName, callback);
+      ujs.jQuery(document).bind(eventName, callback);
     };
     ujs.removeEvent = function(eventName, callback) {
-      ujs.jQuery(document).off(eventName, callback);
+      ujs.jQuery(document).unbind(eventName, callback);
     }
   } else if ('addEventListener' in window) {
     ujs.handleEvent = function(eventName, callback) {
